@@ -16,7 +16,7 @@ const ButtonsWIthAccess = ({ articleInfo }: IButtonsWIthAccessProps) => {
     deleteArticleMutation.mutate(
       { slug },
       {
-        onSuccess: (_) => {
+        onSuccess: () => {
           queryClient.invalidateQueries({ queryKey: [QUERY_ARTICLES_KEY] });
           navigate(`/`);
         },

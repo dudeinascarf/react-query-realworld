@@ -23,7 +23,7 @@ const Comment = ({ comments, slug }: ICommentProps) => {
     createCommentMutation.mutate(
       { body, slug },
       {
-        onSuccess: (_) => {
+        onSuccess: () => {
           setNewComment({ body: '', slug });
           queryClient.invalidateQueries({ queryKey: [QUERY_COMMENTS_KEY] });
         },
@@ -35,7 +35,7 @@ const Comment = ({ comments, slug }: ICommentProps) => {
     deleteCommentMutation.mutate(
       { slug, id },
       {
-        onSuccess: (_) => {
+        onSuccess: () => {
           queryClient.invalidateQueries({ queryKey: [QUERY_COMMENTS_KEY] });
         },
       },
